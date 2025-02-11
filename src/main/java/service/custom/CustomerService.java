@@ -1,11 +1,10 @@
 package service.custom;
 
 import dto.Customer;
-import service.SuperService;
 
 import java.util.List;
 
-public interface CustomerService extends SuperService {
+public interface CustomerService  {
     boolean addCustomer(Customer customer);
     boolean updateCustomer(Customer customer);
     Customer searchCustomer(String id);

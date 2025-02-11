@@ -2,24 +2,20 @@ package service.custom.impl;
 
 import dto.Customer;
 import entity.CustomerEntity;
+import jakarta.inject.Inject;
 import org.modelmapper.ModelMapper;
-import reporsitory.DaoFactory;
-import reporsitory.custom.CustomerDao;
+import repository.custom.CustomerDao;
 import service.custom.CustomerService;
-import util.DaoType;
 
 import java.util.List;
 
-public class CustomerServiceImpl implements CustomerService {
-
-    CustomerDao dao = DaoFactory.getInstance().getDaoType(DaoType.CUSTOMER);
-
+public class CustomerServiceImpl  implements CustomerService {
+    @Inject
+    CustomerDao dao;
     @Override
     public boolean addCustomer(Customer customer) {
-        System.out.println("Service : "+customer);
-
-        CustomerEntity map = new ModelMapper().map(customer, CustomerEntity.class);
-        dao.save(map);
+        System.out.println("service : "+customer);
+        dao.save(new ModelMapper().map(customer, CustomerEntity.class));
         return false;
     }
 

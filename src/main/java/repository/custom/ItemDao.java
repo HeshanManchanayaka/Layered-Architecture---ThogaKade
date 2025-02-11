@@ -1,4 +1,4 @@
-package reporsitory.custom;
+package repository.custom;
 
 public interface ItemDao {
 }
